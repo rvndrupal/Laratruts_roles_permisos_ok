@@ -124,13 +124,33 @@ return [
                 [
                     'text' => 'Listado',
                     'url'  => 'admin/user',
-                    'permission'  => 'read-customers',
+                    'permission'  => 'read-user',
                     'icon' => 'list'
                 ],
                 [
                     'text' => 'Crear',
                     'url'  => 'admin/user/create',
-                    'permission'  => 'create-customers',
+                    'permission'  => 'create-user',
+                    'icon' => 'plus-circle'
+                ],
+            ],
+        ],
+
+        [
+            'text' => 'Roles',
+            'url'  => 'admin/role',
+            'icon' => 'users',
+            'submenu' => [
+                [
+                    'text' => 'Listado',
+                    'url'  => 'admin/role',
+                    'permission'  => 'read-role',
+                    'icon' => 'list'
+                ],
+                [
+                    'text' => 'Crear',
+                    'url'  => 'admin/role/create',
+                    'permission'  => 'create-role',
                     'icon' => 'plus-circle'
                 ],
             ],

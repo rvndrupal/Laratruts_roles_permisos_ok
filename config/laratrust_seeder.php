@@ -11,6 +11,7 @@ return [
             'categories' => 'c,r,u,d',
             'tags' => 'c,r,u,d',
             'user' => 'c,r,u,d',
+            'role' => 'c,r,u,d',
         ],
         'administrator' => [
             'customers' => 'c,r,u',
@@ -20,6 +21,7 @@ return [
             'categories' => 'c,r,u',
             'tags' => 'c,r,u',
             'user' => 'c,r,u',
+            'role' => 'c,r,u',
         ],
         'normaluser' => [
             'customers' => 'r',
@@ -29,6 +31,7 @@ return [
             'categories' => 'r',
             'tags' => 'r',
             'user' => 'r',
+            'role' => 'r',
         ],
     ],
     'permission_structure' => [

@@ -30,6 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         ['module' => 'orders', 'controller' => 'OrderController'],
         ['module' => 'payment-methods', 'controller' => 'PaymentMethodController'],
         ['module' => 'user', 'controller' => 'UserController'],
+        ['module' => 'role', 'controller' => 'RoleController'],
     ];
 
     foreach ($routes as $route) {

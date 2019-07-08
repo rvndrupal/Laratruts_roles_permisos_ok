@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-<div id="app">
+@permission('read-user')
 @section('content')
 
 
@@ -78,7 +78,8 @@
 
 
 @stop
-</div>
+@endpermission
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

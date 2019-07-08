@@ -19,6 +19,7 @@ return [
             'products' => 'c,r,u',
             'categories' => 'c,r,u',
             'tags' => 'c,r,u',
+            'user' => 'c,r,u',
         ],
         'normaluser' => [
             'customers' => 'r',
@@ -27,6 +28,7 @@ return [
             'products' => 'r',
             'categories' => 'r',
             'tags' => 'r',
+            'user' => 'r',
         ],
     ],
     'permission_structure' => [

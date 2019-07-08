@@ -82,7 +82,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $title = __('Actualizar Usuario');
+        $user = User::find($id);
+        $roles = Role::all();
+        return view('user.form', compact('user', 'title','roles'));
     }
 
     /**
@@ -94,7 +97,23 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            \DB::beginTransaction();
+            $user = user::findOrFail($id);
+            hooks()->do_action('before_update_user', $user);
+            $user->fill($request->input())->save();
+            hooks()->do_action('after_update_user', $user);
+            $user->roles()->sync($request->get('roles'));
+            \DB::commit();
+            return redirect(route('user.index'))->with('message', [
+                'success', __("Usuario actualizado correctamente")
+            ]);
+        } catch (\Exception $exception) {
+            \DB::rollBack();
+            return redirect(route('user.index'))->with('message', [
+                'danger', __(sprintf("Error actualizando la categoría: %s", $exception->getMessage()))
+            ]);
+        }
     }
 
     /**
@@ -111,7 +130,7 @@ class UserController extends Controller
                     \DB::beginTransaction();
                     $user = User::find($id);
 
-                    hooks()->add_action('before_delete_category', $user);
+                    hooks()->add_action('before_delete_user', $user);
                     $user->delete();
                     hooks()->add_action('after_delete_category', $id);
                     \DB::commit();

@@ -1,3 +1,5 @@
 Navegacion.
 
 1.-config->adminlte
+
+2.-Archivo muy importante hooks--> app->helpers->hooks

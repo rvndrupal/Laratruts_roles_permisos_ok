@@ -21,7 +21,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $title = __("Home");
+        $title = __("Bienvenido");
         return view('home', compact('title'));
     }
 }

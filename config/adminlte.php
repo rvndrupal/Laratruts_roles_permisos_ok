@@ -17,7 +17,7 @@ return [
 
     'title_prefix' => 'Recursos - ',
 
-    'title_postfix' => '',
+    'title_postfix' => 'Admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'yellow',
+    'skin' => 'green-light',
 
     /*
     |--------------------------------------------------------------------------
@@ -115,6 +115,28 @@ return [
             'permission'  => 'read-charts',
             'icon' => 'fas fa-chart-line'
         ],
+
+        [
+            'text' => 'Usuarios',
+            'url'  => 'admin/user',
+            'icon' => 'users',
+            'submenu' => [
+                [
+                    'text' => 'Listado',
+                    'url'  => 'admin/user',
+                    'permission'  => 'read-customers',
+                    'icon' => 'list'
+                ],
+                [
+                    'text' => 'Crear',
+                    'url'  => 'admin/user/create',
+                    'permission'  => 'create-customers',
+                    'icon' => 'plus-circle'
+                ],
+            ],
+        ],
+
+
         [
             'text' => 'Clientes',
             'url'  => 'admin/customers',

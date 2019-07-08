@@ -20,6 +20,7 @@
 @endpush
 
 @push('js')
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         var dt;
         jQuery(document).ready(function ($) {

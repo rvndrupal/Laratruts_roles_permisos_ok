@@ -14,7 +14,7 @@ class ChartController extends Controller
 
         $begin = date_create('2019-01-01');
         $end = date_create('2019-12-31');
-        $i = new \DateInterval('P1M');
+        $i = new \DateInterval('P1M'); //pasa de un mes de duración.
         $period = new \DatePeriod($begin, $i, $end);
 
         $orders = Order::select(
@@ -62,7 +62,7 @@ class ChartController extends Controller
         }
 
         foreach ($period as $date) {
-            $month = (int) $date->format('m');
+            $month = (int) $date->format('m'); //la magia de los meses en cero
             $data['orders'][] = isset($data['_orders'][$month]) ? $data['_orders'][$month]['total'] : 0;
             $data['products'][] = isset($data['_products'][$month]) ? $data['_products'][$month]['total'] : 0;
             $data['customers'][] = isset($data['_customers'][$month]) ? $data['_customers'][$month]['total'] : 0;

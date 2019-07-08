@@ -10,6 +10,7 @@ return [
             'products' => 'c,r,u,d',
             'categories' => 'c,r,u,d',
             'tags' => 'c,r,u,d',
+            'user' => 'c,r,u,d',
         ],
         'administrator' => [
             'customers' => 'c,r,u',

@@ -36,10 +36,11 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $permissions = Permission::all();
+        //$permissions = Permission::orderBy('id', 'ASC')->pluck('name', 'id');
+        $permissions=Permission::all();
         $title = __('Crear nuevo rol');
-        $role = new Role;
-        return view('categories.form', compact('permissions', 'title','role'));
+        $roles = new Role;
+        return view('roles.form', compact('permissions', 'title','roles'));
     }
 
     /**
@@ -50,7 +51,10 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $role=Role::create($request->all());
+        //actualizamos los permisos
+        $role->permissions()->sync($request->get('permissions'));
+        return redirect(route('role.index'))->with('message', ['success', __("Rol creado correctamente")]);
     }
 
     /**
@@ -72,7 +76,10 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+      $title = __('Editar Rol');
+      $roles = Role::where('id', $id)->with('permissions')->first();
+      $permissions = Permission::all(); //aqui obtiene todos los permisos seleccionados
+      return view('roles.form',compact('roles','permissions','title'));
     }
 
     /**
@@ -84,7 +91,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $role = Role::findOrFail($id);
+         $role->update($request->all());
+         $role->permissions()->sync($request->get('permissions'));
+         return redirect(route('role.index'))->with('message', ['success', __("Rol actualizado correctamente")]);
     }
 
     /**

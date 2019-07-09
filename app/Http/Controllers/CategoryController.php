@@ -24,6 +24,7 @@ class CategoryController extends Controller
     public function create () {
         $title = __('Crear categoría');
         $category = new Category;
+        //dd($category);
         return view('categories.form', compact('category', 'title'));
     }
 

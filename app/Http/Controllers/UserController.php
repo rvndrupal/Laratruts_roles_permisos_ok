@@ -99,7 +99,7 @@ class UserController extends Controller
     {
         try {
             \DB::beginTransaction();
-            $user = user::findOrFail($id);
+            $user = User::findOrFail($id);
             hooks()->do_action('before_update_user', $user);
             $user->fill($request->input())->save();
             hooks()->do_action('after_update_user', $user);

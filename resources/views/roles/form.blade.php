@@ -10,41 +10,13 @@
             </div>
 
             <div class="box-body">
-                @if($role->exists)
-                    {{ Form::model($role, ['url' => route('role.update', ['id' => $role->id]), 'method' => 'put']) }}
+                @if($roles->exists)
+                    {{ Form::model($roles, ['url' => route('role.update', ['id' => $roles->id]), 'method' => 'put']) }}
                 @else
-                    {{ Form::model($role, ['url' => route('role.store')]) }}
+                    {{ Form::model($roles, ['url' => route('role.store')]) }}
                 @endif
 
-                {{--  <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                    {{ Form::label('name', __('Nombre'), ['class' => 'control-label']) }}
-                    {{ Form::text('name', null, ['class' => ['form-control'], 'id' => 'name']) }}
-                    @if($errors->has('name'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
-                        </span>
-                    @endif
-                </div>
 
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    {{ Form::label('email', __('Email'), ['class' => 'control-label']) }}
-                    {{ Form::text('email', null, ['class' => ['form-control'], 'id' => 'email']) }}
-                    @if($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
-                </div>
-
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    {{ Form::label('password', __('Password'), ['class' => 'control-label']) }}
-                    {{ Form::text('password', null, ['class' => ['form-control'], 'id' => 'email']) }}
-                    @if($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
-                </div>  --}}
                 <div class="from-group">
                     {!! Form::label('name','Nombre') !!}
 
@@ -52,9 +24,9 @@
 
             </div>
             <div class="from-group">
-                    {!! Form::label('slug','URL Amigable') !!}
+                    {!! Form::label('display_name','Display name') !!}
 
-                    {!! Form::text('slug', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('display_name', null, ['class' => 'form-control']) !!}
 
             </div>
             <div class="from-group">
@@ -64,22 +36,24 @@
 
             </div>
 
-                <h3>Lista de roles</h3><hr>
 
+
+                <h3>Lista de Permisos</h3><hr>
+                {{--  <div class="form-group">
+                        {{ Form::select('permissions[]', $permissions, null, ['class' => 'form-control permissions','multiple']) }}
+                </div>  --}}
                 <div class="form-group">
-                    <ul class="list-unstyled">
-                        @foreach ($roles as $role )
-                        <li>
-                            <label>
-                            {{   Form::checkbox('roles[]', $role->id, null) }}
-                            {{ $role->name }}
-                            <em>( {{ $role->description ?: 'N/A' }})</em>
-                            </label>
-                        </li>
-
-                        @endforeach
-
-                    </ul>
+                        <ul class="list-unstyled">
+                            @foreach ($permissions as $permission )
+                                <li>
+                                    <label>
+                                    {{ Form::checkbox('permissions[]', $permission->id, null) }}
+                                    {{ $permission->name }}
+                                    <em>( {{ $permission->description ?: 'N/A' }})</em>
+                                    </label>
+                                </li>
+                            @endforeach
+                        </ul>
                 </div>
 
 
@@ -101,4 +75,5 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 

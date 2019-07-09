@@ -61,7 +61,7 @@
             </div>
 
             <div class="box-footer">
-                <a href="{{ route('user.index') }}" class="btn btn-default">{{ __('Volver') }}</a>
+                <a href="{{ route('role.index') }}" class="btn btn-default">{{ __('Volver') }}</a>
                 {{ Form::submit($title, ['class' => 'btn btn-info pull-right']) }}
                 {{ Form::close() }}
             </div>

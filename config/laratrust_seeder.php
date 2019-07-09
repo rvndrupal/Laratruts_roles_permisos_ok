@@ -12,6 +12,7 @@ return [
             'tags' => 'c,r,u,d',
             'user' => 'c,r,u,d',
             'role' => 'c,r,u,d',
+            'permission' => 'c,r,u,d',
         ],
         'administrator' => [
             'customers' => 'c,r,u',
@@ -22,6 +23,7 @@ return [
             'tags' => 'c,r,u',
             'user' => 'c,r,u',
             'role' => 'c,r,u',
+            'permission' => 'c,r,u',
         ],
         'normaluser' => [
             'customers' => 'r',
@@ -32,6 +34,7 @@ return [
             'tags' => 'r',
             'user' => 'r',
             'role' => 'r',
+            'permission' => 'r',
         ],
     ],
     'permission_structure' => [

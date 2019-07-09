@@ -120,6 +120,7 @@ return [
             'text' => 'Usuarios',
             'url'  => 'admin/user',
             'icon' => 'users',
+            'permission'  => 'read-user',
             'submenu' => [
                 [
                     'text' => 'Listado',
@@ -139,7 +140,8 @@ return [
         [
             'text' => 'Roles',
             'url'  => 'admin/role',
-            'icon' => 'users',
+            'icon' => 'user-tag',
+            'permission'  => 'read-role',
             'submenu' => [
                 [
                     'text' => 'Listado',
@@ -156,11 +158,32 @@ return [
             ],
         ],
 
+        [
+            'text' => 'Permisos',
+            'url'  => 'admin/permission',
+            'icon' => 'lock',
+            'permission'  => 'read-permission',
+            'submenu' => [
+                [
+                    'text' => 'Listado',
+                    'url'  => 'admin/permission',
+                    'permission'  => 'read-permission',
+                    'icon' => 'list'
+                ],
+                [
+                    'text' => 'Crear',
+                    'url'  => 'admin/permission/create',
+                    'permission'  => 'create-permission',
+                    'icon' => 'plus-circle'
+                ],
+            ],
+        ],
 
         [
             'text' => 'Clientes',
             'url'  => 'admin/customers',
             'icon' => 'users',
+            'permission'  => 'read-customers',
             'submenu' => [
                 [
                     'text' => 'Listado',
@@ -180,6 +203,7 @@ return [
             'text' => 'Métodos de pago',
             'url'  => 'admin/payment-methods',
             'icon' => 'gem',
+            'permission'  => 'read-payment-methods',
             'submenu' => [
                 [
                     'text' => 'Listado',
@@ -199,6 +223,7 @@ return [
             'text' => 'Pedidos',
             'url'  => 'admin/orders',
             'icon' => 'shopping-basket',
+            'permission'  => 'read-orders',
             'submenu' => [
                 [
                     'text' => 'Listado',
@@ -218,6 +243,7 @@ return [
             'text' => 'Productos',
             'url'  => 'admin/products',
             'icon' => 'boxes',
+            'permission'  => 'read-products',
             'submenu' => [
                 [
                     'text' => 'Listado',
@@ -237,6 +263,7 @@ return [
             'text' => 'Categorías',
             'url'  => 'admin/categories',
             'icon' => 'tag',
+            'permission'  => 'read-categories',
             'submenu' => [
                 [
                     'text' => 'Listado',
@@ -256,6 +283,7 @@ return [
             'text' => 'Etiquetas',
             'url'  => 'admin/tags',
             'icon' => 'tags',
+            'permission'  => 'read-tags',
             'submenu' => [
                 [
                     'text' => 'Listado',

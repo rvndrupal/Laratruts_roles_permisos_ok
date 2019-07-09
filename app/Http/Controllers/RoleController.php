@@ -105,6 +105,20 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (request()->ajax()) {
+            if (auth()->user()->can('delete-role')) {
+                try {
+                    \DB::beginTransaction();
+                    $role = Role::find($id);
+                    $role->delete();
+                    \DB::commit();
+                } catch (\Exception $exception) {
+                    \DB::rollBack();
+                    //TODO hacer lo que sea necesario
+                }
+            }
+        } else {
+            abort(401);
+        }
     }
 }
